@@ -1,25 +1,30 @@
 [
   {
+    "id": 1,
     "game": "Baldurs Gate 3",
     "genre": "RPG",
     "description": "Sehr umfangreiches Rollenspiel mit vielen Möglichkeiten."
   },
   {
+    "id": 2,
     "game": "Cyberpunk 2077",
     "genre": "Action RPG",
     "description": "Futuristisches Action-Rollenspiel in einer offenen Welt."
   },
   {
+    "id": 3,
     "game": "The Witcher 3: Wild Hunt",
     "genre": "RPG",
     "description": "Episches Rollenspiel mit einer tiefgründigen Geschichte."
   },
   {
+    "id": 4,
     "game": "Red Dead Redemption 2",
     "genre": "Action-Adventure",
     "description": "Western-Actionspiel mit einer offenen Welt und einer fesselnden Story."
   },
   {
+    "id": 5,
     "game": "Elden Ring",
     "genre": "Action RPG",
     "description": "Herausforderndes Action-Rollenspiel in einer weitläufigen Fantasy-Welt."

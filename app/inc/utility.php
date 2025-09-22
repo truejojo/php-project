@@ -18,3 +18,13 @@ function getAllGames(): array {
 
   return json_decode($json, true);
 }
+
+function getGame(int $id): array {
+  $games = getAllGames();
+  foreach ($games as $game) {
+    if ($game['id'] === $id) {
+      return $game;
+    }
+  }
+  return [];
+} 
