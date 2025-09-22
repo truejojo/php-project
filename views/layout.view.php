@@ -1,11 +1,7 @@
-<?php
-$title = "Startseite";
-
-include 'inc/header.php';
-?>
+<?php include 'app/inc/header.php'; ?>
 
 <?php require "$template.view.php"; ?>
 
 <?php
-include 'inc/footer.php';
+include 'app/inc/footer.php';
 ?>
