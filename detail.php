@@ -1,11 +1,11 @@
 <?php
 require_once "./app/app.php";
 
-// $gameId = filter_input(type: INPUT_GET, var_name: "id", filter: FILTER_VALIDATE_INT);
+$gameId = filter_input(type: INPUT_GET, var_name: "id", filter: FILTER_VALIDATE_INT);
 
-// if (!isset($gameId)) {
-//   redirect("index.php");
-// }
+if (!isset($gameId)) {
+  redirect("index.php");
+}
 
 $game = getGame($gameId);
 
