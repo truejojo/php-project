@@ -1,5 +1,5 @@
 <?php
-require_once "./app/app.php";
+require_once "../app/app.php";
 
 $gameId = validateDetail(type: INPUT_GET, value: "id");
 
@@ -15,9 +15,9 @@ if (!$game) {
 }
 
 $viewData = [
-  'title' => 'Detailansicht',
-  'headline' => "Game: {$game['game']}",
+  'title' => 'Detailansicht - Admin',
+  'headline' => "Admin: Game: {$game['game']}",
   'game' => $game,
 ];
 
-view(template: 'detail', data: $viewData);
+view(template: 'admin/detail', data: $viewData);

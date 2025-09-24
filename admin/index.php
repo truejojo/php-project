@@ -1,5 +1,5 @@
 <?php
-require_once "./app/app.php";
+require_once "../app/app.php";
 
 $searchGame = validate(INPUT_GET, 'search-game');
 
@@ -8,10 +8,10 @@ $listData = $searchGame
   : getAllGames();
 
 $viewData = [
-  'title' => 'Startseite',
-  'headline' => 'Spieleübersicht',
+  'title' => 'Admin',
+  'headline' => 'Spieleübersicht - Admin',
   'gameList' => $listData,
   'searchGame' => $searchGame,
 ];
 
-view('index', $viewData);
+view('admin/index', $viewData);
