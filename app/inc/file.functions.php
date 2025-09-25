@@ -37,3 +37,28 @@ function getSearchGames(string $searchGame): array
 
   return $results;
 }
+
+function addGame($name, $genre, $description): void
+{
+  $gameList = getAllGames();
+  array_push($gameList, [
+    'id' => getIdNumber(),
+    'game' => $name,
+    'genre' => $genre,
+    'description' => $description,
+  ]);
+
+  saveAllGames($gameList);
+}
+
+function saveAllGames($gameList): void
+{
+  $filename = CONFIG['filename'];
+  $json = json_encode($gameList, JSON_PRETTY_PRINT);
+  file_put_contents($filename, $json);
+}
+
+function getIdNumber(): int
+{
+  return random_int(1, 1000000);
+}

@@ -17,12 +17,7 @@ function validate($type, $value)
   return filter_input(
     $type,
     $value,
-    FILTER_VALIDATE_REGEXP,
-    [
-      'options' => [
-        'regexp' => '/^[\p{L}\p{N}\s:<>-]+$/u',
-      ],
-    ]
+    FILTER_SANITIZE_SPECIAL_CHARS
   );
 }
 function validateDetail($type, $value)

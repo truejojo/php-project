@@ -1,32 +1,74 @@
 [
-  {
-    "id": 1,
-    "game": "Baldurs Gate 3",
-    "genre": "RPG",
-    "description": "Sehr umfangreiches Rollenspiel mit vielen Möglichkeiten."
-  },
-  {
-    "id": 2,
-    "game": "Cyberpunk 2077",
-    "genre": "Action RPG",
-    "description": "Futuristisches Action-Rollenspiel in einer offenen Welt."
-  },
-  {
-    "id": 3,
-    "game": "The Witcher 3: Wild Hunt",
-    "genre": "RPG",
-    "description": "Episches Rollenspiel mit einer tiefgründigen Geschichte."
-  },
-  {
-    "id": 4,
-    "game": "Red Dead Redemption 2",
-    "genre": "Action-Adventure",
-    "description": "Western-Actionspiel mit einer offenen Welt und einer fesselnden Story."
-  },
-  {
-    "id": 5,
-    "game": "Elden Ring",
-    "genre": "Action RPG",
-    "description": "Herausforderndes Action-Rollenspiel in einer weitläufigen Fantasy-Welt."
-  }
+    {
+        "id": 1,
+        "game": "Baldurs Gate 3",
+        "genre": "RPG",
+        "description": "Sehr umfangreiches Rollenspiel mit vielen M\u00f6glichkeiten."
+    },
+    {
+        "id": 2,
+        "game": "Cyberpunk 2077",
+        "genre": "Action RPG",
+        "description": "Futuristisches Action-Rollenspiel in einer offenen Welt."
+    },
+    {
+        "id": 3,
+        "game": "The Witcher 3: Wild Hunt",
+        "genre": "RPG",
+        "description": "Episches Rollenspiel mit einer tiefgr\u00fcndigen Geschichte."
+    },
+    {
+        "id": 4,
+        "game": "Red Dead Redemption 2",
+        "genre": "Action-Adventure",
+        "description": "Western-Actionspiel mit einer offenen Welt und einer fesselnden Story."
+    },
+    {
+        "id": 5,
+        "game": "Elden Ring",
+        "genre": "Action RPG",
+        "description": "Herausforderndes Action-Rollenspiel in einer weitl\u00e4ufigen Fantasy-Welt."
+    },
+    {
+        "id": 20250924140913806,
+        "game": "Dogs",
+        "genre": "fantasy",
+        "description": "Super cool"
+    },
+    {
+        "id": 2025092414101905,
+        "game": "Dogs 2",
+        "genre": "fantasy",
+        "description": "Super very cool"
+    },
+    {
+        "id": 938152,
+        "game": "Cats",
+        "genre": "fantasy",
+        "description": "Kakwurst"
+    },
+    {
+        "id": 86599,
+        "game": "hkjhkj",
+        "genre": "hkjhkjh",
+        "description": "hkjhkj"
+    },
+    {
+        "id": 817655,
+        "game": "jlkjlk",
+        "genre": "jlkjlkj",
+        "description": "jlkjlk"
+    },
+    {
+        "id": 966897,
+        "game": "jlkjlk",
+        "genre": "\u00fc\u00e4\u00f6",
+        "description": "&#60;script&#62;alert(&#34;jkjkl&#34;);&#60;\/script&#62;"
+    },
+    {
+        "id": 41164,
+        "game": "Dogs 3",
+        "genre": "Fantasy",
+        "description": "Super"
+    }
 ]

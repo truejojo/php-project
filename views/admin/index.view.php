@@ -12,19 +12,29 @@
         maxlength="30">
       <input type="submit" value="Search" class="py-1 px-3 bg-blue-500 text-white rounded">
     </form>
-    <a href="index.php" class="py-1 px-3 bg-transparent border border-white text-white rounded">Alle Spiele</a>
+    <div class="space-x-2">
+      <a href="index.php" class="py-1 px-3 bg-transparent border border-white text-white rounded">Alle Spiele</a>
+      <a href="create.php" class="py-1 px-3 bg-green-500 hover:bg-green-300 text-white hover:text-black rounded">ADD</a>
+    </div>
   </div>
 </div>
 
 <ul class="my-5 space-y-2 max-w-2xl mx-auto">
   <?php if (!empty($data['gameList']) && is_array($data['gameList'])): ?>
     <?php foreach ($data['gameList'] as $game): ?>
-      <li class="bg-slate-300 hover:bg-slate-100 rounded-lg text-black">
-        <a href="detail.php?id=<?= htmlspecialchars($game['id']); ?>" class="block p-3">
-          <h2 class="text-2xl font-semibold text-blue-800"><?= htmlspecialchars($game['game']); ?></h2>
-          <div>Genre: <?= htmlspecialchars($game['genre']); ?></div>
-          <p>Beschreibung: <?= htmlspecialchars($game['description']); ?></p>
-        </a>
+      <li class="bg-slate-300 rounded-lg text-black p-3">
+        <div class="flex justify-between">
+          <a href="detail.php?id=<?= htmlspecialchars($game['id']); ?>" class="block ">
+            <h2 class="text-2xl font-semibold hover:font-bold hover:underline text-blue-800"><?= htmlspecialchars($game['game']); ?>
+            </h2>
+          </a>
+          <div class="space-x-2">
+            <a href="edit.php?id=<?= htmlspecialchars($game['id']); ?>" class="text-blue-700 hover:font-bold">EDIT</a>
+            <a href="delete.php?id=<?= htmlspecialchars($game['id']); ?>" class="text-red-700 hover:font-bold">DELETE</a>
+          </div>
+        </div>
+        <div>Genre: <?= htmlspecialchars($game['genre']); ?></div>
+        <p>Beschreibung: <?= htmlspecialchars($game['description']); ?></p>
       </li>
     <?php endforeach; ?>
   <?php else: ?>
