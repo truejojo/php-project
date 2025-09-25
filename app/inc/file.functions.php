@@ -38,6 +38,22 @@ function getSearchGames(string $searchGame): array
   return $results;
 }
 
+function editGame($id, $name, $genre, $description): void
+{
+  $games = getAllGames();
+
+  foreach ($games as $i => $game) {
+    if ((string)$game['id'] === (string)$id) {
+      $games[$i]['game'] = $name;
+      $games[$i]['genre'] = $genre;
+      $games[$i]['description'] = $description;
+    }
+  }
+
+  saveAllGames($games);
+  return;
+}
+
 function addGame($name, $genre, $description): void
 {
   $gameList = getAllGames();
