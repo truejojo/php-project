@@ -53,6 +53,21 @@ function editGame($id, $name, $genre, $description): void
   saveAllGames($games);
   return;
 }
+function deleteGame($id): void
+{
+  $games = getAllGames();
+
+  foreach ($games as $i => $game) {
+    if ((string)$game['id'] === (string)$id) {
+      // unset($games[$i]);
+      array_splice($games, $i, 1);
+      break;
+    }
+  }
+
+  saveAllGames($games);
+  return;
+}
 
 function addGame($name, $genre, $description): void
 {

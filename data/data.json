@@ -48,33 +48,9 @@
         "description": "Kakwurst"
     },
     {
-        "id": 86599,
-        "game": "Cats 2",
-        "genre": "Fantasy",
-        "description": "Animals Game"
-    },
-    {
-        "id": 817655,
-        "game": "Cats 3",
-        "genre": "fantasy",
-        "description": "Film"
-    },
-    {
-        "id": 966897,
-        "game": "jlkjlk",
-        "genre": "\u00fc\u00e4\u00f6",
-        "description": "&#60;script&#62;alert(&#34;jkjkl&#34;);&#60;\/script&#62;"
-    },
-    {
         "id": 41164,
         "game": "Dogs 3",
         "genre": "Fantasy",
         "description": "Super"
-    },
-    {
-        "id": 433577,
-        "game": "Dogs 4",
-        "genre": "Fantasy",
-        "description": "Best Game"
     }
 ]
