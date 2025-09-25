@@ -1,5 +1,9 @@
 <?php
-require_once "../app/app.php";
+session_start();
+
+require("../app/app.php");
+
+ensure_user_is_authenticated();
 
 $gameId = validateDetail(type: INPUT_GET, value: "id");
 

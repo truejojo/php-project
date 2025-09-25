@@ -1,7 +1,7 @@
 <?php
 const CONFIG = [
   'filename' => APP_PATH . '/data/data.json',
-  'user' => [
+  'users' => [
     'max@text.de' => 'test1234'
   ]
 ];
