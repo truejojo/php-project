@@ -3,9 +3,11 @@ require_once "./app/app.php";
 
 $searchGame = validate(INPUT_GET, 'search-game');
 
+$data = new FileDataProvider(CONFIG['filename']);
+
 $listData = $searchGame
-  ? getSearchGames($searchGame)
-  : getAllGames();
+  ? $data->getSearchGames($searchGame)
+  : $data->getAllGames();
 
 $viewData = [
   'title' => 'Startseite',

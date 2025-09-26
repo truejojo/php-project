@@ -58,5 +58,11 @@
         "game": "Cats",
         "genre": "Animals",
         "description": "Lorem Ipsum"
+    },
+    {
+        "id": "68d66812c19d2",
+        "game": "Cats 2",
+        "genre": "Fantasy",
+        "description": "Lorem Ipsum und so weiter..."
     }
 ]

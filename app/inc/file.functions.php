@@ -11,6 +11,7 @@ function getAllGames(): array
     $json = file_get_contents($filename);
   }
 
+  // return array_map('normalizeGameRecord', json_decode($json, true) ?: []);
   return json_decode($json, true);
 }
 
@@ -72,17 +73,10 @@ function deleteGame($id): void
 function addGame($name, $genre, $description): void
 {
   $gameList = getAllGames();
+  $id = uniqid();
 
-  // $id = uniqid();
-  // $game = new Game($id, $name, $genre, $description);
-
-
-  array_push($gameList, [
-    'id' => uniqid(),
-    'game' => $name,
-    'genre' => $genre,
-    'description' => $description,
-  ]);
+  $newGame = new Game($id, $name, $genre, $description);
+  array_push($gameList, (array)$newGame);
 
   saveAllGames($gameList);
 }
