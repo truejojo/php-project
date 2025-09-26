@@ -10,7 +10,7 @@ $game = [];
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
   // ID beim POST aus dem Formular lesen (hidden field)
-  $gameId = validateDetail(INPUT_POST, 'id');
+  $gameId = validate(INPUT_POST, 'id');
   $gameName = validate(INPUT_POST, 'game');
   $gameGenre = validate(INPUT_POST, 'genre');
   $gameDescription = validate(INPUT_POST, 'description');
@@ -34,7 +34,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
   }
 } else {
   // GET (oder erster Aufruf): Datensatz laden
-  $gameId = validateDetail(INPUT_GET, 'id');
+  $gameId = validate(INPUT_GET, 'id');
   if ($gameId === null || $gameId === false) {
     redirect('index.php');
   }

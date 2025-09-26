@@ -5,7 +5,7 @@ require("../app/app.php");
 
 ensure_user_is_authenticated();
 
-$gameId = validateDetail(type: INPUT_GET, value: "id");
+$gameId = validate(INPUT_GET, 'id');
 
 if (!isset($gameId)) {
   redirect("index.php");

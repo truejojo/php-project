@@ -5,4 +5,4 @@ session_destroy();
 
 require "app/app.php";
 
-redirect("login.php");
+redirect("index.php");

@@ -14,7 +14,7 @@ function getAllGames(): array
   return json_decode($json, true);
 }
 
-function getGame(int $id): array
+function getGame(string $id): array
 {
   $games = getAllGames();
   foreach ($games as $game) {
@@ -72,8 +72,13 @@ function deleteGame($id): void
 function addGame($name, $genre, $description): void
 {
   $gameList = getAllGames();
+
+  // $id = uniqid();
+  // $game = new Game($id, $name, $genre, $description);
+
+
   array_push($gameList, [
-    'id' => getIdNumber(),
+    'id' => uniqid(),
     'game' => $name,
     'genre' => $genre,
     'description' => $description,
@@ -87,9 +92,4 @@ function saveAllGames($gameList): void
   $filename = CONFIG['filename'];
   $json = json_encode($gameList, JSON_PRETTY_PRINT);
   file_put_contents($filename, $json);
-}
-
-function getIdNumber(): int
-{
-  return random_int(1, 1000000);
 }
