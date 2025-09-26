@@ -20,7 +20,3 @@ function validate($type, $value)
     FILTER_SANITIZE_SPECIAL_CHARS
   );
 }
-// function validateDetail($type, $value)
-// {
-//   return filter_input(type: $type, var_name: $value, filter: FILTER_VALIDATE_INT);
-// }

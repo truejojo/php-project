@@ -19,7 +19,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
   ) {
     array_push($status, "Angegebene Werte sind ungültig!");
   } else {
-    addGame($gameName, $gameGenre, $gameDescription);
+    Data::addGame($gameName, $gameGenre, $gameDescription);
     redirect("index.php");
   }
 }

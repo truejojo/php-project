@@ -11,7 +11,7 @@ if (!isset($gameId)) {
   redirect("index.php");
 }
 
-$game = getGame($gameId);
+$game = Data::getGame($gameId);
 
 if (!$game) {
   view("404");

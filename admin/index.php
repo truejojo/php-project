@@ -8,8 +8,8 @@ ensure_user_is_authenticated();
 $searchGame = validate(INPUT_GET, 'search-game');
 
 $listData = $searchGame
-  ? getSearchGames($searchGame)
-  : getAllGames();
+  ? Data::getSearchGames($searchGame)
+  : Data::getAllGames();
 
 $viewData = [
   'title' => 'Admin',

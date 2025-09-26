@@ -1,14 +1,7 @@
 <?php
 require_once 'game.class.php';
-class FileDataProvider
+class FileDataProvider extends DataProvider
 {
-  private $source;
-  public function __construct($source)
-  {
-    $this->source = $source;
-  }
-
-
   public function getGame(string $id): array
   {
     $games = $this->getAllGames();
@@ -19,8 +12,6 @@ class FileDataProvider
     }
     return [];
   }
-
-
 
   public function editGame($id, $name, $genre, $description): void
   {

@@ -15,7 +15,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
   if (empty($gameId)) {
     $status[] = 'Angegebene Werte sind ungültig!';
   } else {
-    deleteGame($gameId);
+    Data::deleteGame($gameId);
     redirect('index.php');
   }
 } else {
@@ -25,7 +25,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     redirect('index.php');
   }
 
-  $game = getGame($gameId);
+  $game = Data::getGame($gameId);
   if (!$game) {
     view('404');
     exit;

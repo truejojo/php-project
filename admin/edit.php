@@ -29,7 +29,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
       'description' => (string)($gameDescription ?? ''),
     ];
   } else {
-    editGame($gameId, $gameName, $gameGenre, $gameDescription);
+    Data::editGame($gameId, $gameName, $gameGenre, $gameDescription);
     redirect('index.php');
   }
 } else {
@@ -39,7 +39,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     redirect('index.php');
   }
 
-  $game = getGame($gameId);
+  $game = Data::getGame($gameId);
   if (!$game) {
     view('404');
     exit;

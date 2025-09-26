@@ -42,12 +42,6 @@
         "description": "Super very cool"
     },
     {
-        "id": "938152",
-        "game": "Cats 2",
-        "genre": "Run&#38;#38;#38;Play",
-        "description": "Kakwurst"
-    },
-    {
         "id": "41164",
         "game": "Dogs 3",
         "genre": "Fantasy",
@@ -60,9 +54,9 @@
         "description": "Lorem Ipsum"
     },
     {
-        "id": "68d66812c19d2",
-        "game": "Cats 2",
-        "genre": "Fantasy",
-        "description": "Lorem Ipsum und so weiter..."
+        "id": "68d6a8e924c7a",
+        "game": "Animals",
+        "genre": "History",
+        "description": "Game with Animals against the world."
     }
 ]
