@@ -42,21 +42,15 @@
         "description": "Super very cool"
     },
     {
-        "id": "41164",
-        "name": "Dogs 3",
-        "genre": "Fantasy",
-        "description": "Super"
-    },
-    {
-        "id": "68d6427dd6676",
-        "name": "Cats",
-        "genre": "Animals",
-        "description": "Lorem Ipsum"
-    },
-    {
         "id": "68d6a8e924c7a",
-        "name": "Animals",
-        "genre": "History",
-        "description": "Game with Animals against the world."
+        "name": "Cats",
+        "genre": "History und Fantasy",
+        "description": "Game with Animals against cats - animals will win! YEAHHH!!!."
+    },
+    {
+        "id": "68d9714c34d26",
+        "name": "Dogs 3",
+        "genre": "Fantasy und Fun",
+        "description": "Super tolles Spiel!"
     }
 ]

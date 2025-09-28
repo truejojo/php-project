@@ -6,41 +6,38 @@ require("../app/app.php");
 ensure_user_is_authenticated();
 
 $status = [];
-$game = [];
+$game = null; // Game|NULL
 
-if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
-  // ID beim POST aus dem Formular lesen (hidden field)
+$method = $_SERVER['REQUEST_METHOD'] ?? '';
+
+if ($method === 'POST') {
+  // ID & Felder einlesen
   $gameId = validate(INPUT_POST, 'id');
-  $gameName = validate(INPUT_POST, 'game');
-  $gameGenre = validate(INPUT_POST, 'genre');
-  $gameDescription = validate(INPUT_POST, 'description');
+  $name = validate(INPUT_POST, 'name'); // korrektes Feld (vorher fälschlich 'game')
+  $genre = validate(INPUT_POST, 'genre');
+  $description = validate(INPUT_POST, 'description');
 
-  if (
-    $gameName === null || trim((string)$gameName) === ''
-    || $gameGenre === null || trim((string)$gameGenre) === ''
-    || $gameDescription === null || trim((string)$gameDescription) === ''
-  ) {
+  // Minimale Normalisierung
+  $name = is_string($name) ? trim($name) : '';
+  $genre = is_string($genre) ? trim($genre) : '';
+  $description = is_string($description) ? trim($description) : '';
+
+  if (empty($gameId) || $name === '' || $genre === '' || $description === '') {
     $status[] = 'Angegebene Werte sind ungültig!';
-    // Bereits eingegebene Werte für die View sichern
-    $game = [
-      'id' => (string)($gameId ?? ''),
-      'game' => (string)($gameName ?? ''),
-      'genre' => (string)($gameGenre ?? ''),
-      'description' => (string)($gameDescription ?? ''),
-    ];
+    // Platzhalter-Objekt für Wiederbefüllung
+    $game = new Game((string)$gameId, (string)$name, (string)$genre, (string)$description);
   } else {
-    Data::editGame($gameId, $gameName, $gameGenre, $gameDescription);
+    Data::editGame($gameId, $name, $genre, $description);
     redirect('index.php');
   }
-} else {
-  // GET (oder erster Aufruf): Datensatz laden
+} else { // GET
   $gameId = validate(INPUT_GET, 'id');
   if ($gameId === null || $gameId === false) {
     redirect('index.php');
   }
-
+  
   $game = Data::getGame($gameId);
-  if (!$game) {
+  if (!$game instanceof Game) {
     view('404');
     exit;
   }

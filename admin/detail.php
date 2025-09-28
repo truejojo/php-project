@@ -13,14 +13,14 @@ if (!isset($gameId)) {
 
 $game = Data::getGame($gameId);
 
-if (!$game) {
+if (!$game instanceof Game) {
   view("404");
   exit;
 }
 
 $viewData = [
   'title' => 'Detailansicht - Admin',
-  'headline' => "Admin: Game: {$game['game']}",
+  'headline' => "Admin: Game: {$game->getName()}",
   'game' => $game,
 ];
 
