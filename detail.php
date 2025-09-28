@@ -9,14 +9,14 @@ if (!isset($gameId)) {
 
 $game = Data::getGame($gameId);
 
-if (!$game) {
+if (!$game instanceof Game) {
   view("404");
   exit;
 }
 
 $viewData = [
   'title' => 'Detailansicht',
-  'headline' => "Game: {$game['game']}",
+  'headline' => 'Game: ' . $game->getName(),
   'game' => $game,
 ];
 

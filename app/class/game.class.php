@@ -1,17 +1,48 @@
 <?php
-
 class Game
 {
-  public string $id;
-  public string $game;
-  public string $genre;
-  public string $description;
+  private string $id;
+  private string $name;
+  private string $genre;
+  private string $description;
 
-  public function __construct(string $id, string $game, string $genre, string $description)
+  public function __construct(string $id, string $name, string $genre, string $description)
   {
     $this->id = $id;
-    $this->game = $game;
+    $this->name = $name;
     $this->genre = $genre;
+    $this->description = $description;
+  }
+
+  // Getter
+  public function getId(): string
+  {
+    return $this->id;
+  }
+  public function getName(): string
+  {
+    return $this->name;
+  }
+  public function getGenre(): string
+  {
+    return $this->genre;
+  }
+  public function getDescription(): string
+  {
+    return $this->description;
+  }
+
+  // Setter für editGame()
+  public function setName(string $name): void
+  {
+    $this->name = $name;
+  }
+  public function setGenre(string $genre): void
+  {
+    $this->genre = $genre;
+  }
+  public function setDescription(string $description): void
+  {
     $this->description = $description;
   }
 }

@@ -9,7 +9,7 @@
       self::$dataSourse = $dataProvider;
     }
 
-    public static function getGame(string $id): array
+    public static function getGame(string $id): ?Game
     {
       return self::$dataSourse->getGame($id);
     }

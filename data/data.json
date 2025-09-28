@@ -1,61 +1,61 @@
 [
     {
         "id": "1",
-        "game": "Baldurs Gate 3",
+        "name": "Baldurs Gate 3",
         "genre": "RPG",
         "description": "Sehr umfangreiches Rollenspiel mit vielen M\u00f6glichkeiten."
     },
     {
         "id": "2",
-        "game": "Cyberpunk 2077",
+        "name": "Cyberpunk 2077",
         "genre": "Action RPG",
         "description": "Futuristisches Action-Rollenspiel in einer offenen Welt."
     },
     {
         "id": "3",
-        "game": "The Witcher 3: Wild Hunt",
+        "name": "The Witcher 3: Wild Hunt",
         "genre": "RPG",
         "description": "Episches Rollenspiel mit einer tiefgr\u00fcndigen Geschichte."
     },
     {
         "id": "4",
-        "game": "Red Dead Redemption 2",
+        "name": "Red Dead Redemption 2",
         "genre": "Action-Adventure",
         "description": "Western-Actionspiel mit einer offenen Welt und einer fesselnden Story."
     },
     {
         "id": "5",
-        "game": "Elden Ring",
+        "name": "Elden Ring",
         "genre": "Action RPG",
         "description": "Herausforderndes Action-Rollenspiel in einer weitl\u00e4ufigen Fantasy-Welt."
     },
     {
         "id": "20250924140913806",
-        "game": "Dogs",
+        "name": "Dogs",
         "genre": "fantasy",
         "description": "Super cool"
     },
     {
         "id": "2025092414101905",
-        "game": "Dogs 2",
+        "name": "Dogs 2",
         "genre": "fantasy",
         "description": "Super very cool"
     },
     {
         "id": "41164",
-        "game": "Dogs 3",
+        "name": "Dogs 3",
         "genre": "Fantasy",
         "description": "Super"
     },
     {
         "id": "68d6427dd6676",
-        "game": "Cats",
+        "name": "Cats",
         "genre": "Animals",
         "description": "Lorem Ipsum"
     },
     {
         "id": "68d6a8e924c7a",
-        "game": "Animals",
+        "name": "Animals",
         "genre": "History",
         "description": "Game with Animals against the world."
     }

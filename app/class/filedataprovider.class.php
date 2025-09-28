@@ -1,47 +1,49 @@
 <?php
 require_once 'game.class.php';
+
 class FileDataProvider extends DataProvider
 {
-  public function getGame(string $id): array
+  public function getGame(string $id): ?Game  // Rückgabetyp auf Game-Objekt ändern
   {
     $games = $this->getAllGames();
     foreach ($games as $game) {
-      if ($game['id'] === $id) {
+      if ($game->getId() === $id) {  // Getter verwenden
         return $game;
       }
     }
-    return [];
+    
+    return null;
   }
 
   public function editGame($id, $name, $genre, $description): void
   {
     $games = $this->getAllGames();
 
-    foreach ($games as $i => $game) {
-      if ((string)$game['id'] === (string)$id) {
-        $games[$i]['game'] = $name;
-        $games[$i]['genre'] = $genre;
-        $games[$i]['description'] = $description;
+    foreach ($games as $game) {
+      if ($game->getId() === $id) {  // Getter verwenden
+        // Setter verwenden (diese musst du in der Game-Klasse hinzufügen)
+        $game->setName($name);
+        $game->setGenre($genre);
+        $game->setDescription($description);
+        break;
       }
     }
 
     $this->setGamesData($games);
-    return;
   }
+
   public function deleteGame($id): void
   {
     $games = $this->getAllGames();
 
     foreach ($games as $i => $game) {
-      if ((string)$game['id'] === (string)$id) {
-        // unset($games[$i]);
+      if ($game->getId() === $id) {  // Getter verwenden
         array_splice($games, $i, 1);
         break;
       }
     }
 
     $this->setGamesData($games);
-    return;
   }
 
   public function addGame($name, $genre, $description): void
@@ -50,7 +52,7 @@ class FileDataProvider extends DataProvider
     $id = uniqid();
 
     $newGame = new Game($id, $name, $genre, $description);
-    array_push($gameList, (array)$newGame);
+    $gameList[] = $newGame;
 
     $this->setGamesData($gameList);
   }
@@ -59,18 +61,31 @@ class FileDataProvider extends DataProvider
   {
     $allGames = $this->getAllGames();
 
-    $results = array_filter(array: $allGames, callback: function ($game) use ($searchGame) {
-      return stripos($game['game'], $searchGame) !== false ||
-        stripos($game['genre'], $searchGame) !== false ||
-        stripos($game['description'], $searchGame) !== false;
+    $results = array_filter($allGames, function ($game) use ($searchGame) {
+      return stripos($game->getName(), $searchGame) !== false ||
+        stripos($game->getGenre(), $searchGame) !== false ||
+        stripos($game->getDescription(), $searchGame) !== false;
     });
 
-    return $results;
+    return array_values($results);  // Index zurücksetzen
   }
 
   public function getAllGames(): array
   {
-    return $this->getGamesData() ?? [];
+    $data = $this->getGamesData() ?? [];
+    $gameList = [];
+    
+    foreach ($data as $gameData) {
+      // Game-Objekte aus den Array-Daten erstellen
+      $gameList[] = new Game(
+        $gameData['id'],
+        $gameData['name'],
+        $gameData['genre'],
+        $gameData['description']
+      );
+    }
+    
+    return $gameList;
   }
 
   private function getGamesData(): array
@@ -84,13 +99,25 @@ class FileDataProvider extends DataProvider
       $json = file_get_contents($filename);
     }
 
-    return json_decode($json, true);
+    return json_decode($json, true) ?? [];
   }
 
-  private function setGamesData($gameList): void
+  private function setGamesData(array $gameList): void
   {
     $filename = $this->source;
-    $json = json_encode($gameList, JSON_PRETTY_PRINT);
+    $data = [];
+    
+    foreach ($gameList as $game) {
+      // Game-Objekte zurück in Arrays konvertieren für JSON
+      $data[] = [
+        'id' => $game->getId(),
+        'name' => $game->getName(),
+        'genre' => $game->getGenre(),
+        'description' => $game->getDescription()
+      ];
+    }
+    
+    $json = json_encode($data, JSON_PRETTY_PRINT);
     file_put_contents($filename, $json);
   }
 }

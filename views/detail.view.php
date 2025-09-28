@@ -3,8 +3,8 @@
   <a href="index.php" class="py-1 px-3 bg-transparent border border-white text-white rounded">zurück</a>
 
   <div class="p-2 bg-slate-100 rounded-lg text-black mt-5">
-    <h2 class="text-2xl font-semibold text-blue-800"><?= htmlspecialchars($game['game']); ?></h2>
-    <div>Genre: <?= htmlspecialchars($game['genre']); ?></div>
-    <p>Beschreibung: <?= htmlspecialchars($game['description']); ?></p>
+    <h2 class="text-2xl font-semibold text-blue-800"><?= htmlspecialchars($game->getName()); ?></h2>
+    <div>Genre: <?= htmlspecialchars($game->getGenre()); ?></div>
+    <p>Beschreibung: <?= htmlspecialchars($game->getDescription()); ?></p>
   </div>
 </div>
