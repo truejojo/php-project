@@ -6,14 +6,14 @@ require("../app/app.php");
 ensure_user_is_authenticated();
 
 $status = [];
-$game = null; // Game|NULL
+$game = null;
 
 $method = $_SERVER['REQUEST_METHOD'] ?? '';
 
 if ($method === 'POST') {
   // ID & Felder einlesen
   $gameId = validate(INPUT_POST, 'id');
-  $name = validate(INPUT_POST, 'name'); // korrektes Feld (vorher fälschlich 'game')
+  $name = validate(INPUT_POST, 'name');
   $genre = validate(INPUT_POST, 'genre');
   $description = validate(INPUT_POST, 'description');
 
