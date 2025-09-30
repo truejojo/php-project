@@ -41,4 +41,20 @@
   <p class="text-center">Keine Spiele gefunden.</p>
   <?php endif; ?>
 </ul>
+<?php if (isset($pagination) && is_array($pagination) && ($pagination['pages'] ?? 1) > 1): ?>
+  <div class="max-w-2xl mx-auto flex items-center justify-between mt-8 mb-4 text-sm text-white">
+    <div>
+      Seite <?= (int)$pagination['page']; ?> / <?= (int)$pagination['pages']; ?>
+      (<?= (int)$pagination['total']; ?> Einträge)
+    </div>
+    <div class="flex gap-2">
+      <?php if (!empty($pagination['hasPrev'])): ?>
+        <a class="px-3 py-1 rounded bg-slate-600 hover:bg-slate-500" href="?page=<?= (int)($pagination['page'] - 1) ?>">&laquo; Zurück</a>
+      <?php endif; ?>
+      <?php if (!empty($pagination['hasNext'])): ?>
+        <a class="px-3 py-1 rounded bg-slate-600 hover:bg-slate-500" href="?page=<?= (int)($pagination['page'] + 1) ?>">Weiter &raquo;</a>
+      <?php endif; ?>
+    </div>
+  </div>
+<?php endif; ?>
 </div>

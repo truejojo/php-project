@@ -84,6 +84,37 @@ class MySqlDataProvider extends DataProvider
   }
 
   /**
+   * MySQL-optimierte Pagination (COUNT + LIMIT/OFFSET)
+   * @return array{items:Game[], total:int, page:int, perPage:int, pages:int, hasPrev:bool, hasNext:bool}
+   */
+  public function getAllGamesPaginated(int $page, int $perPage): array
+  {
+    $page = max(1, $page);
+    $perPage = max(1, min(100, $perPage));
+    $db = $this->dbConnect();
+    // Total Count
+    $total = (int)$db->query('SELECT COUNT(*) FROM games')->fetchColumn();
+    $pages = max(1, (int)ceil($total / $perPage));
+    if ($page > $pages) { $page = $pages; }
+    $offset = ($page - 1) * $perPage;
+    $stmt = $db->prepare('SELECT id, name, genre, description FROM games ORDER BY id DESC LIMIT :limit OFFSET :offset');
+    $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $items = array_map(fn(array $row) => $this->hydrateGame($row), $rows);
+    return [
+      'items' => $items,
+      'total' => $total,
+      'page' => $page,
+      'perPage' => $perPage,
+      'pages' => $pages,
+      'hasPrev' => $page > 1,
+      'hasNext' => $page < $pages,
+    ];
+  }
+
+  /**
    * Liefert mehrere Game-Objekte entsprechend der Query.
    * @return Game[]
    */

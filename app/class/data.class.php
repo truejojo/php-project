@@ -36,4 +36,9 @@
     {
       return self::$provider->getAllGames();
     }
+
+    public static function getAllGamesPaginated(int $page, int $perPage): array
+    {
+      return self::$provider->getAllGamesPaginated($page, $perPage);
+    }
   }
