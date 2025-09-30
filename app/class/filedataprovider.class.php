@@ -3,7 +3,7 @@ require_once 'game.class.php';
 
 class FileDataProvider extends DataProvider
 {
-  public function getGame(string $id): ?Game  // Rückgabetyp auf Game-Objekt ändern
+  public function getGame(int $id): ?Game  // Rückgabetyp auf Game-Objekt ändern
   {
     $games = $this->getAllGames();
     foreach ($games as $game) {
@@ -15,7 +15,7 @@ class FileDataProvider extends DataProvider
     return null;
   }
 
-  public function editGame($id, $name, $genre, $description): bool
+  public function editGame(int $id, string $name, string $genre, string $description): bool
   {
     $games = $this->getAllGames();
 
@@ -34,7 +34,7 @@ class FileDataProvider extends DataProvider
     return $games ? true : false;
   }
 
-  public function deleteGame($id): bool
+  public function deleteGame(int $id): bool
   {
     $games = $this->getAllGames();
 
@@ -49,7 +49,7 @@ class FileDataProvider extends DataProvider
     return false;
   }
 
-  public function addGame($name, $genre, $description): bool
+  public function addGame(string $name, string $genre, string $description): bool
   {
     $gameList = $this->getAllGames();
     $id = uniqid();

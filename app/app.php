@@ -11,4 +11,13 @@ require_once 'class/mysqldataprovider.class.php';
 require_once 'class/data.class.php';
 
 // Data::initialize(new FileDataProvider(CONFIG['filename']));
-Data::initialize(new MySqlDataProvider(CONFIG['db_source'], CONFIG['db_user'], CONFIG['db_password']));
+try {
+	Data::initialize(new MySqlDataProvider(CONFIG['db_source'], CONFIG['db_user'], CONFIG['db_password']));
+} catch (DatabaseConnectionException $e) {
+	// Nutzerfreundliche Fallback-Ausgabe (kannst du später zu eigener Fehlerseite machen)
+	echo '<h1 style="font-family: sans-serif; color: #b00;">Datenbank aktuell nicht erreichbar.</h1>';
+	echo '<p>Bitte versuche es später erneut.</p>';
+	// Option: detailliertere interne Logik oder Umschalten auf FileDataProvider fallback
+	// Data::initialize(new FileDataProvider(CONFIG['filename']));
+	exit; // weitere Ausführung stoppen
+}

@@ -1,12 +1,12 @@
 <?php
 class Game
 {
-  private string $id;
+  private int $id;
   private string $name;
   private string $genre;
   private string $description;
 
-  public function __construct(string $id, string $name, string $genre, string $description)
+  public function __construct(int $id, string $name, string $genre, string $description)
   {
     $this->id = $id;
     $this->name = $name;
@@ -15,7 +15,7 @@ class Game
   }
 
   // Getter
-  public function getId(): string
+  public function getId(): int
   {
     return $this->id;
   }
