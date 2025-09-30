@@ -15,7 +15,7 @@ class FileDataProvider extends DataProvider
     return null;
   }
 
-  public function editGame($id, $name, $genre, $description): void
+  public function editGame($id, $name, $genre, $description): bool
   {
     $games = $this->getAllGames();
 
@@ -30,23 +30,26 @@ class FileDataProvider extends DataProvider
     }
 
     $this->setGamesData($games);
+
+    return $games ? true : false;
   }
 
-  public function deleteGame($id): void
+  public function deleteGame($id): bool
   {
     $games = $this->getAllGames();
 
     foreach ($games as $i => $game) {
       if ($game->getId() === $id) {  // Getter verwenden
         array_splice($games, $i, 1);
-        break;
+        return true;
       }
     }
 
     $this->setGamesData($games);
+    return false;
   }
 
-  public function addGame($name, $genre, $description): void
+  public function addGame($name, $genre, $description): bool
   {
     $gameList = $this->getAllGames();
     $id = uniqid();
@@ -55,6 +58,8 @@ class FileDataProvider extends DataProvider
     $gameList[] = $newGame;
 
     $this->setGamesData($gameList);
+
+    return $gameList && $newGame ? true : false;
   }
 
   public function getSearchGames(string $searchGame): array
